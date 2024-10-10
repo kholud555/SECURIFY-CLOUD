@@ -1,0 +1,2157 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@font-face {
+    font-family: Amora;
+    src: url(../fonts/CSAmora-Regular_demo-BF66b44d16c992a.otf)
+}
+@font-face {
+    font-family: Resident;
+    src: url(../fonts/CSResident-Regular_demo-BF669f04c42aee3.otf)
+}
+:root {
+    /*========== Colors ==========*/
+    --bg-color: #1e042f;
+    --blob-Green: #c2e59c;
+    --blob-Blue: #64b3f4;
+    --Text-color: white;
+    --linear-gradient:linear-gradient(45deg, #338bff, #61f2ff, #69ffb9);
+    --shadow-purple: #7e2e7c8c;
+    --shadow-blue: #39288b88;
+
+    /*========== Font and typography ==========*/
+    --body-font: Resident;
+    --second-font: Amora;
+    --poppins-font: "Poppins",sans-serif;
+    --blob-size: 31rem;
+    --biggest-font-size: 4.5rem;
+    --big-font-size: 3rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --small-font-size: .813rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    /*========== Transition duration ==========*/
+    --def-transition-duration: .3s;
+}
+/* Responsive typography */
+@media screen and (min-width: 1024px) {
+    :root {
+    --blob-size: 38rem;
+    --biggest-font-size: 6rem;
+    --big-font-size: 4.5rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.3rem;
+    --h3-font-size: 1.25rem;
+    --small-font-size: .875rem;
+    }
+}
+@media screen and (max-width: 400px) {
+    /* :root {
+        --big-font-size: 2rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1rem;
+    } */
+}
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--Text-color);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+} 
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*======================================= Header & nav=========================================================*/
+header{
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image:url(../imgs/symbol-scatter-haikei\ \(7\).svg) ;
+    background-repeat: repeat;
+}
+span {
+    display: block;
+    width: 500px;
+    height: 400px;
+    border-radius: 50%;
+}
+.shadow1 {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    background-color:var(--shadow-purple);
+    filter: blur(100px);
+    z-index: -2;
+}
+.shadow2 {
+    position: absolute;
+    bottom: -30px;
+    right: -70px;
+    background-color: var(--shadow-purple);
+    filter: blur(100px);
+    z-index: -2;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+    box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+    z-index: 90;
+}
+.nav--logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--Text-color);
+    font-family: var(--second-font);
+    font-size: var(--h3-font-size);
+    text-align: justify;
+    width: 330px;
+}
+.nav--logo a {
+    display: inline-block;
+    height: 1px;
+}
+.nav--logo img {
+    width: 50px;
+    transition-property: transform;
+}
+.nav--logo:hover{
+    transform: scale(1.2);
+}
+nav ul{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+nav li {
+    height: 50px;
+}
+nav a {
+    height: 100%;
+    padding: 0 30px;
+    color: var(--Text-color);
+    font-family: var(--second-font);
+    font-size: var(--h2-font-size);
+    display: flex;
+    align-items: center;
+    transition-duration: box-shadow border-radius;
+}
+nav a:hover:not(.nav--logo){
+    box-shadow: 0 0 10px var(--Text-color) inset,
+                0 0 10px var(--Text-color);
+    border-radius: 15px;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 40vh;
+    border-radius: 10px 25px;
+    width: 200px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.032);
+    backdrop-filter: blur(20px);
+    box-shadow: -10px 0 10px rgb(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.sidebar li{
+    width: 100%;
+}
+.sidebar a {
+    width: 100%;
+}
+.menu-btn {
+    display: none;
+}
+
+/*=============== blob ===============*/
+.Blob {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    width: var(--blob-size);
+    height: var(--blob-size);
+}
+.Blob2 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    filter: blur(20px);
+    width: var(--blob-size);
+    height: var(--blob-size);
+}
+.Main--Text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    text-wrap: nowrap;
+}
+.The--Text {
+    font-size: var(--biggest-font-size);
+    font-family: var(--second-font);
+    font-weight: var(--font-bold);
+}
+/*=============== login button ===============*/
+.move--login--btn {
+    position: absolute;
+    left: 50%;
+    top: 300%;
+    translate: -50% -50%;
+}
+.Main--Text .login-btn {
+    position: absolute;
+    translate: -50% -50%;
+    display: block;
+    text-align: center;
+    background:linear-gradient(to top, rgba(62, 226, 255, 0.264), rgba(54, 250, 145, 0.287)) ;
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-bold);
+    color: var(--Text-color);   
+    border-radius: 50px;
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border: 2px solid #fff;
+    backdrop-filter: blur(200px);
+    cursor: pointer;
+    transition-property: background border box-shadow;
+}
+.Main--Text .login-btn:hover{
+    background: transparent;
+    border: 3px solid var(--Text-color);
+    box-shadow:  0 0 25px var(--Text-color),
+                0 0 50px  #ffffff27;
+}
+.Main--Text  .login-btn,nav a,
+    .nav--logo img{
+    transition-duration: var(--def-transition-duration);
+}
+/*=============== spread text ===============*/
+.top--left,.button--left {
+    position: absolute;
+    top: 20%;
+    left: 3%;
+    width: 300px;
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    line-height: 22px;
+    letter-spacing: 2px;
+}
+.button--left {
+    top: 65%;
+    font-size: var(--small-font-size);
+    line-height: 14px;
+}
+.button--left p {
+    font-size: var(--h1-font-size);
+}
+.top--right, .top--right p{
+    position: absolute;
+    top: 20%;
+    right: 7%;
+    font-size: var(--h3-font-size);
+    line-height: 35px;
+}
+.top--right p {
+    text-align: left;
+    width: 100%;
+    font-size: var(--h1-font-size);
+}
+.button--right , 
+.button--right p {
+    position: absolute;
+    right: 11%;
+    bottom: 11%;
+    line-height: 100px;
+}
+.button--right p {
+        text-align: left;
+            width: 100%;
+            font-size: var(--h1-font-size);
+}
+
+/*=============== scrollbar ===============*/
+::-webkit-scrollbar {
+    width: 20px;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: var(--shadow-purple);
+    border-radius: 1rem;
+    margin-block: 1em;
+}
+::-webkit-scrollbar-thumb {
+    background: #ffffffa0;
+    border-radius: 1rem;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color:var(--Text-color);
+}
+::selection {
+    background-color: aliceblue;
+    color: black;
+}
+
+/*======================================= Our Benefits======================================================*/
+.Our--benefits {
+    position: relative;
+}
+.Our--benefits h1 {
+    text-align: center;
+    transform: translate(0, 60px);
+    background-image: var(--linear-gradient);
+    background-clip: text;
+    color: transparent;
+    font-size: var(--big-font-size);
+    font-family: var(--poppins-font);
+}
+
+.Our--benefits .sub-title {
+    text-align: center;
+        transform: translate(0, 80px);
+        font-size: var(--h2-font-size);
+        font-weight: var(--font-medium);
+        letter-spacing: 3px;
+}
+.container--Our--benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px ,1fr));
+    align-items: center;
+    gap: 15px;
+    padding: 50px;
+    transform: translate(0, 60px);
+}
+.container--Our--benefits .card {
+    position: relative;
+    height: 500px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.087);
+    border: 2px solid #3333335f;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.397);
+    backdrop-filter: blur(100px);
+    border-radius: 25px;
+    overflow: hidden;
+}
+.blue--shadow {
+    position: absolute;
+    top: 100px;
+    left: -150px;
+    z-index: -2;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: var(--blob-Blue);
+    filter: blur(100px);
+}
+.container--Our--benefits .card h3 {
+    font-size: var(--h2-font-size);
+    font-weight:var(--font-semi-bold);
+}
+.container--Our--benefits .card p {
+    font-size: var(--h3-font-size);
+    letter-spacing: 1px;
+    line-height: 25px;
+    padding-block: 150px 0px;
+}
+.circular--blob {
+position: absolute;
+    left: 50%;
+    top: 40%;
+    translate: -50% -50%;
+    width: 300px;
+    height: 300px;
+
+}
+.circular--blob:nth-child(2) {
+    filter: blur(20px);
+}
+.container--Our--benefits .card h2 {
+    font-size: var(--h2-font-size);
+    translate: 0px 380px;
+    letter-spacing: 2px;
+    line-height: 25px;
+}
+.orange--shadow {
+    position: absolute;
+    top: 0;
+    right: -100px;
+    z-index: -2;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 166, 0, 0.277);
+    filter: blur(100px);
+}
+
+/*=======================================cloud services======================================================*/
+.cloud--services {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.cloud--services h3 {
+    text-align: center;
+    transform: translate(0, 160px);
+    background-image: var(--linear-gradient);
+    background-clip: text;
+    color: transparent;
+    font-size: var(--big-font-size);
+    font-family: var(--poppins-font);
+}
+.sphere--container {
+    position: absolute;
+    top: 300px;
+    left: 100px;
+    width: 600px;
+    height: 50%;
+}
+.Sphere {
+    z-index: 2;
+    width: 100%;
+    color: #fff;
+}
+.tagcloud {
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 32%;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-family: var(--poppins-font);
+    font-size: 20px;
+}
+.tagcloud--item:hover {
+    color: var(--blob-Blue);
+}
+.Title--Services {
+    position: absolute;
+    top: 300px;
+    right:100px;
+}
+.Title {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    letter-spacing: 3px;
+    line-height: 40px;
+    color: var(--blob-Green);
+    transform: translate();
+}
+.Services--Paragraph {
+    padding-block: 30px 90px;
+    font-size: var(--h3-font-size);
+    font-family: var(--poppins-font);
+    font-weight: var(--font-bold);
+}
+.Title--Services .btn {
+    background: linear-gradient(to top, rgba(62, 226, 255, 0.264), rgba(54, 250, 145, 0.287));
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-bold);
+    color: var(--Text-color);
+    border-radius: 50px;
+    width: 300px;
+    border: 2px solid #fff;
+    backdrop-filter: blur(200px);
+    cursor: pointer;
+    transition-property: background border box-shadow;
+    translate: 100px 0px;
+    }
+    
+.btn:hover {
+        background: transparent;
+        border: 3px solid var(--Text-color);
+        box-shadow: 0 0 25px var(--Text-color),
+            0 0 50px #ffffff27;
+    }
+/*=======================================Pricing======================================================*/
+.Pricing {
+    position: relative;
+    /* width: 100vw;
+    height: 100vh; */
+}
+.Pricing h3 {
+    text-align: center;
+    transform: translate(0, 30px);
+    background-image: var(--linear-gradient);
+    background-clip: text;
+    color: transparent;
+    font-size: var(--big-font-size);
+    font-family: var(--poppins-font);
+}
+.Pricing .pricing-subtitle {
+    text-align: center;
+    transform: translate(0, 20px);
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-medium);
+    letter-spacing: 3px;
+}
+.pricing--container {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit , minmax(300px,1fr));
+    align-items: center;
+    gap: 20px;
+    transform: translate(0 ,5%);
+}
+.pricing--card {
+    position: relative;
+    height: 500px;
+    color: var(--Text-color);
+    background-color: rgba(255, 255, 255, 0.087);
+    border: 2px solid #3333335f;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.397);
+    backdrop-filter: blur(100px);
+    border-radius: 25px;
+    font-family: var(--poppins-font);
+}
+.pricing--card .plan--type--btn {
+    position: absolute;
+    top: 30px;
+    left:30px;
+    font-size: var(--small-font-size);
+    width: 150px;
+    padding: 9px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--Text-color);
+}
+.pricing--card .The--Price {
+    position: absolute;
+    top: 90px;
+    left: 30px;
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    font-family: var(--poppins-font);
+    letter-spacing: 3px;
+}
+
+.pricing--card .Features--subtitle {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    font-size: var(--h3-font-size);
+
+}
+.Features {
+    position: absolute;
+    bottom: 95px;
+    left: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    font-size: var(--small-font-size);
+    
+}
+.all--features {
+    margin: 6px 0px;
+
+}
+.btn {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    text-align: center;
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-bold);
+    color: var(--Text-color);
+    border-radius: 50px;
+    width: 220px;
+    height: 50px;
+    padding: 10px;
+    border: 2px solid #fff;
+    backdrop-filter: blur(200px);
+    cursor: pointer;
+    transition-property: background border box-shadow;
+}
+.pricing--card:nth-child(3) {
+    background-color: transparent;
+    background: linear-gradient(to top,#ffffff0f,#64b3f44f 110%);
+    border: 2px solid var(--blob-Blue);
+}
+.pricing--card:nth-child(3) .plan--type--btn {
+    background-color: var(--blob-Blue);
+}
+.pricing--card:nth-child(3) .btn,
+.pricing--card:nth-child(4) .btn{
+    background: linear-gradient(to top, rgba(62, 226, 255, 0.264), rgba(54, 250, 145, 0.287));
+}
+.pricing--card:nth-child(4) {
+    background-color: transparent;
+    background: linear-gradient(to top, #ffffff0f, #c2e59c64 110%);
+    border: 2px solid var(--blob-Green);
+}
+.pricing--card:nth-child(4) .plan--type--btn {
+    background-color: var(--blob-Green);
+}
+.pricing--card:hover {
+    transform: translateY(-25px);
+}
+
+/*=======================================Footer======================================================*/
+footer {
+    height: 40vh;
+    min-width: 100vw;
+    position: relative;
+    background-image: url(../imgs/symbol-scatter-haikei\ \(9\).svg);
+    background-repeat: repeat;
+    font-family: var(--poppins-font);
+}
+.line {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5px;
+    border-radius: 0px;
+    background: var(--linear-gradient);
+}
+.left--footer {
+    position: absolute;
+    left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 3px;
+    line-height: 25px;
+}
+.web--logo {
+    display: flex;
+    padding-block: 5px 0px;
+    justify-content: center;
+    align-items: center;
+
+}
+.web--logo p {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+}
+.web--logo img {
+    mix-blend-mode: luminosity;
+    /* filter: grayscale(80%); */
+}
+.E-mail {
+    padding-block: 10px 40px;
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+}
+.follow {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+}
+.Social-Icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--h1-font-size);
+    background: transparent;
+    color: var(--Text-Color);
+    padding-block: 25px 0px;
+    transition: 0.3s ease-in-out;
+}
+.Social-Icons a:hover {
+    transform: scale(1.5)translateY(-5px);
+    filter: drop-shadow(1px 1px 5px #fff);
+}
+.right--footer {
+    position: absolute;
+    right: 250px;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Product {
+    margin-block-start: 45px;
+}
+.Product, .company {
+    font-size: var(--h3-font-size);
+    display: block;
+    padding: 10px 35px;
+}
+.Product  li:nth-child(1),
+.company  li:nth-child(1) {
+    font-weight: var(--font-bold);
+    color: var(--blob-Blue);
+}
+.Product a,
+.company a {
+    color: var(--Text-Color);
+    display: block;
+    margin: 10px 0px;
+}
+.Product a:hover,
+.company a:hover {
+    transform: scale(1.1)translateY(-5px);
+    filter: drop-shadow(1px 1px 5px #fff);
+}
+.Copyright {
+    padding-block: 20px 0px;
+    transform: translate(480px, 0px);
+    font-size: 10px;
+}
+/* ================================================================================================================================== */
+/* ================================================================================================================================== */
+/* ================================================================================================================================== */
+/* ================================================================================================================================== */
+/*============================BREAKPOINTS======================================================*/
+/*FOR SMALL DEVICES */
+@media screen and (max-width: 360px) {
+    :root{
+        --big-font-size:2rem;
+        --h1-font-size:1rem;
+    }
+    header {
+        background-repeat: no-repeat;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Blob,
+    .Blob2 {
+        width: 22rem;
+    }
+
+    .nav--logo {
+        font-size: .6rem;
+    }
+
+    .nav--logo img {
+        width: 40px;
+    }
+
+    .Main--Text {
+        top: 40%;
+    }
+
+    .The--Text {
+        font-size: 2.4rem;
+    }
+
+    span {
+        width: 350px;
+        height: 200px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 450%;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 0rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 0rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 0rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* =====================  SERVICES =============== */
+    .cloud--services h3 {
+        transform: translate(0, 0rem);
+    }
+.sphere--container {
+        display: none;
+    }
+.Title--Services {
+        transform: translate(1rem, -15rem);
+    }
+    .Title {
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--h3-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h3-font-size);
+        width: 200px;
+        translate: 20px 0px;
+    }
+
+    /* =====================  PRICING =============== */
+
+    .Pricing h3 {
+        transform: translate(0, -10rem);
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -10rem);
+    }
+
+    .pricing--container {
+        transform: translate(0, -10rem);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+        .pricing--card:hover {
+            transform: translateY(-10px);
+        }
+
+    /* =====================  FOOTER =============== */
+    footer {
+        background-repeat: repeat;
+    }
+
+    .line {
+        /* change 400px */
+        width: 130%;
+        transform: translate(0rem, -6rem);
+    }
+
+    .left--footer {
+        transform: translate(-40px, -7rem);
+    }
+
+    .right--footer {
+        right: 0px;
+        transform: translate(0rem, 3rem);
+    }
+
+    .Copyright {
+        letter-spacing: 0px;
+        padding-block: 0px 0px;
+        font-size: 12px;
+        font-family: var(--second-font);
+        transform: translate(1rem, 10rem);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    :root {
+            --big-font-size: 2rem;
+            --h1-font-size: 1rem;
+        }
+    
+        header {
+            background-repeat: no-repeat;
+        }
+    
+        nav {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .Blob,
+        .Blob2 {
+            width: 22rem;
+        }
+    
+        .nav--logo {
+            font-size: .6rem;
+        }
+    
+        .nav--logo img {
+            width: 40px;
+        }
+    
+        .Main--Text {
+            top: 40%;
+        }
+    
+        .The--Text {
+            font-size: 2.4rem;
+        }
+    
+        span {
+            width: 350px;
+            height: 200px;
+            z-index: -10;
+        }
+    
+        .shadow1 {
+            top: 0px;
+            left: 0px;
+        }
+    
+        .shadow2 {
+            bottom: 0px;
+            right: 0px;
+        }
+    
+        .move--login--btn {
+            top: 450%;
+        }
+    
+        .hideOnMobile {
+            display: none;
+        }
+    
+        .menu-btn {
+            display: block;
+        }
+    
+        /* ================  our--Benefits ========= */
+        .Our--benefits h1 {
+            transform: translate(0, 0rem);
+        }
+    
+        .Our--benefits .sub-title {
+            font-size: var(--h3-font-size);
+            transform: translate(0, 0rem);
+        }
+    
+        .container--Our--benefits {
+            transform: translate(0, 0rem);
+            padding: 7px;
+        }
+    
+        .container--Our--benefits .card h3 {
+            top: 55px;
+        }
+    
+        .container--Our--benefits .card p {
+            font-size: var(--h3-font-size);
+            letter-spacing: 3px;
+            padding-block: 150px 0px;
+        }
+    
+        .container--Our--benefits .card h2 {
+            translate: 0px 380px;
+        }
+    
+        /* =====================  SERVICES =============== */
+        .cloud--services h3 {
+            transform: translate(0, 0rem);
+        }
+    
+        .sphere--container {
+            display: none;
+        }
+    
+        .Title--Services {
+            transform: translate(1rem, -15rem);
+        }
+    
+        .Title {
+            letter-spacing: 1px;
+            line-height: 25px;
+        }
+    
+        .Services--Paragraph {
+            padding-block: 20px 100px;
+            font-size: var(--h3-font-size);
+        }
+    
+        .Title--Services .btn {
+            font-size: var(--h3-font-size);
+            width: 200px;
+            translate: 20px 0px;
+        }
+    
+        /* =====================  PRICING =============== */
+    
+        .Pricing h3 {
+            transform: translate(0, -10rem);
+        }
+    
+        .Pricing .pricing-subtitle {
+            transform: translate(0, -10rem);
+        }
+    
+        .pricing--container {
+            transform: translate(0, -10rem);
+            padding: 7px;
+        }
+    
+        .btn {
+            width: 150px;
+        }
+    
+        .pricing--card:hover {
+            transform: translateY(-10px);
+        }
+    
+        /* =====================  FOOTER =============== */
+        footer {
+            background-repeat: repeat;
+        }
+    
+        .line {
+            width: 100%;
+            transform: translate(0rem, -6rem);
+        }
+    
+        .left--footer {
+            transform: translate(0rem, 0rem);
+        }
+    
+        .right--footer {
+            right: 0px;
+            transform: translate(-4rem, 3rem);
+        }
+    
+        .Copyright {
+            letter-spacing: 0px;
+            padding-block: 0px 0px;
+            font-size: 12px;
+            font-family: var(--second-font);
+            transform: translate(0rem, 10rem);
+        }
+}
+
+@media screen and (max-width: 575px) {
+        :root {
+                --big-font-size: 2rem;
+                --h1-font-size: 1rem;
+            }
+        
+            header {
+                background-repeat: no-repeat;
+            }
+        
+            nav {
+                width: 100%;
+                padding: 0;
+                margin: 0;
+            }
+        
+            .Blob,
+            .Blob2 {
+                width: 22rem;
+            }
+        
+            .nav--logo {
+                font-size: .6rem;
+            }
+        
+            .nav--logo img {
+                width: 40px;
+            }
+        
+            .Main--Text {
+                top: 40%;
+            }
+        
+            .The--Text {
+                font-size: 2rem;
+            }
+        
+            span {
+                width: 350px;
+                height: 200px;
+                z-index: -10;
+            }
+        
+            .shadow1 {
+                top: 0px;
+                left: 0px;
+            }
+        
+            .shadow2 {
+                bottom: 0px;
+                right: 0px;
+            }
+        
+            .move--login--btn {
+                top: 450%;
+            }
+        
+            .hideOnMobile {
+                display: none;
+            }
+        
+            .menu-btn {
+                display: block;
+            }
+        
+            /* ================  our--Benefits ========= */
+            .Our--benefits h1 {
+                transform: translate(0, 0rem);
+            }
+        
+            .Our--benefits .sub-title {
+                font-size: var(--h3-font-size);
+                transform: translate(0, 0rem);
+            }
+        
+            .container--Our--benefits {
+                transform: translate(0, 0rem);
+                padding: 7px;
+            }
+        
+            .container--Our--benefits .card h3 {
+                top: 55px;
+            }
+        
+            .container--Our--benefits .card p {
+                font-size: var(--h3-font-size);
+                letter-spacing: 3px;
+                padding-block: 150px 0px;
+            }
+        
+            .container--Our--benefits .card h2 {
+                translate: 0px 380px;
+            }
+        
+            /* =====================  SERVICES =============== */
+            .cloud--services h3 {
+                transform: translate(0, 0rem);
+            }
+        
+            .sphere--container {
+                display: none;
+            }
+        
+            .Title--Services {
+                transform: translate(1rem, -15rem);
+            }
+        
+            .Title {
+                letter-spacing: 1px;
+                line-height: 25px;
+            }
+        
+            .Services--Paragraph {
+                padding-block: 20px 100px;
+                font-size: var(--h3-font-size);
+            }
+        
+            .Title--Services .btn {
+                font-size: var(--h3-font-size);
+                width: 200px;
+                translate: 20px 0px;
+            }
+        
+            /* =====================  PRICING =============== */
+        
+            .Pricing h3 {
+                transform: translate(0, -10rem);
+            }
+        
+            .Pricing .pricing-subtitle {
+                transform: translate(0, -10rem);
+            }
+        
+            .pricing--container {
+                transform: translate(0, -10rem);
+                padding: 7px;
+            }
+        
+            .btn {
+                width: 150px;
+            }
+        
+            .pricing--card:hover {
+                transform: translateY(-10px);
+            }
+        
+            /* =====================  FOOTER =============== */
+            footer {
+                background-repeat: repeat;
+            }
+        
+            .line {
+                width: 100%;
+                transform: translate(0rem, -6rem);
+            }
+        
+            .left--footer {
+                transform: translate(3rem, -7rem);
+            }
+        
+            .right--footer {
+                right: 0px;
+                transform: translate(-6rem, 3rem);
+            }
+        
+            .Copyright {
+                letter-spacing: 0px;
+                padding-block: 0px 0px;
+                font-size: 12px;
+                font-family: var(--second-font);
+                transform: translate(1rem, 10rem);
+            }
+}
+
+@media screen and (max-width: 600px) {
+
+    header {
+        background-repeat: no-repeat;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Blob,
+    .Blob2 {
+        width: 28rem;
+    }
+
+    .nav--logo {
+        font-size: var(--small-font-size);
+    }
+
+    .nav--logo img {
+        width: 50px;
+    }
+
+    .Main--Text {
+        top: 40%;
+    }
+
+    .The--Text {
+        font-size: var(--big-font-size);
+    }
+
+    span {
+        width: 350px;
+        height: 200px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 450%;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 0rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 0rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 0rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* =====================  SERVICES =============== */
+    .cloud--services h3 {
+        transform: translate(0, 0rem);
+    }
+
+    .sphere--container {
+        display: none;
+    }
+
+    .Title--Services {
+        transform: translate(1rem, -12rem);
+    }
+
+    .Title {
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--h3-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h3-font-size);
+        width: 200px;
+        translate: 20px 0px;
+    }
+
+    /* =====================  PRICING =============== */
+
+    .Pricing h3 {
+        transform: translate(0, -10rem);
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -10rem);
+    }
+
+    .pricing--container {
+        transform: translate(0, -10rem);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+    .pricing--card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* =====================  FOOTER =============== */
+    footer {
+        background-repeat: repeat;
+    }
+
+    .line {
+        width: 100%;
+        transform: translate(0rem, -6rem);
+    }
+
+    .left--footer {
+        transform: translate(3rem, -7rem);
+    }
+
+    .right--footer {
+        right: 0px;
+        transform: translate(-6rem, 3rem);
+    }
+
+    .Copyright {
+        letter-spacing: 0px;
+        padding-block: 0px 0px;
+        font-size: 12px;
+        font-family: var(--second-font);
+        transform: translate(1rem, 10rem);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    header {
+        background-repeat: no-repeat;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Blob,
+    .Blob2 {
+        width: 29rem;
+    }
+
+    .nav--logo {
+        font-size: var(--small-font-size);
+    }
+
+    .nav--logo img {
+        width: 50px;
+    }
+
+    .Main--Text {
+        top: 48%;
+    }
+
+    .The--Text {
+        font-size: 3.2rem;
+    }
+
+    span {
+        width: 350px;
+        height: 200px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 450%;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 0rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 0rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 0rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* =====================  SERVICES =============== */
+    .cloud--services h3 {
+        transform: translate(0, 0rem);
+    }
+
+    .sphere--container {
+        display: none;
+    }
+
+    .Title--Services {
+        transform: translate(1rem, -12rem);
+    }
+
+    .Title {
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--h3-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h3-font-size);
+        width: 200px;
+        translate: 20px 0px;
+    }
+
+    /* =====================  PRICING =============== */
+
+    .Pricing h3 {
+        transform: translate(0, -10rem);
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -10rem);
+    }
+
+    .pricing--container {
+        transform: translate(0, -10rem);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+    .pricing--card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* =====================  FOOTER =============== */
+    footer {
+        background-repeat: repeat;
+    }
+
+    .line {
+        width: 100%;
+        transform: translate(0rem, -6rem);
+    }
+
+    .left--footer {
+        transform: translate(3rem, -7rem);
+    }
+
+    .right--footer {
+        right: 0px;
+        transform: translate(-15rem, 3rem);
+    }
+
+    .Copyright {
+        letter-spacing: 0px;
+        padding-block: 0px 0px;
+        font-size: 12px;
+        font-family: var(--second-font);
+        transform: translate(1rem, 10rem);
+    }
+}
+
+@media screen and (max-width: 991px) {
+    header {
+        background-repeat: no-repeat;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Blob,
+    .Blob2 {
+        width: 29rem;
+    }
+
+    .nav--logo {
+        font-size: var(--small-font-size);
+    }
+
+    .nav--logo img {
+        width: 50px;
+    }
+
+    .Main--Text {
+        top: 48%;
+    }
+
+    .The--Text {
+        font-size: 3.2rem;
+    }
+
+    span {
+        width: 350px;
+        height: 200px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 450%;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 0rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 0rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 0rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* =====================  SERVICES =============== */
+    .cloud--services h3 {
+        transform: translate(0, 0rem);
+    }
+
+    .sphere--container {
+        display: none;
+    }
+
+    .Title--Services {
+        transform: translate(1rem, -12rem);
+    }
+
+    .Title {
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--h3-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h3-font-size);
+        width: 200px;
+        translate: 20px 0px;
+    }
+
+    /* =====================  PRICING =============== */
+
+    .Pricing h3 {
+        transform: translate(0, -10rem);
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -10rem);
+    }
+
+    .pricing--container {
+        transform: translate(0, -10rem);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+    .pricing--card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* =====================  FOOTER =============== */
+footer {
+    background-repeat: repeat;
+}
+.line {
+    width: 100%;
+    transform: translate(0rem, -6rem);
+}
+.left--footer {
+    transform: translate(3rem, -7rem);
+}
+.right--footer {
+    right: 0px;
+    transform: translate(-6rem, 3rem);
+}
+.Copyright {
+    letter-spacing: 0px;
+    padding-block: 0px 0px;
+    font-size: 12px;
+    font-family: var(--second-font);
+    transform: translate(1rem, 10rem);
+}
+}
+@media screen and (max-width: 1024px) {
+    header {
+        background-repeat: no-repeat;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .Blob,
+    .Blob2 {
+        width: 29rem;
+    }
+
+    .nav--logo {
+        font-size: var(--small-font-size);
+    }
+
+    .nav--logo img {
+        width: 50px;
+    }
+
+    .Main--Text {
+        top: 48%;
+    }
+
+    .The--Text {
+        font-size: 3.2rem;
+    }
+
+    span {
+        width: 350px;
+        height: 200px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 450%;
+    }
+
+    .hideOnMobile {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 0rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 0rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 0rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 5rem);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 5rem);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 6rem);
+        padding: 7px;
+    }
+
+    .container--Our--benefits .card h3 {
+        top: 55px;
+    }
+
+    .container--Our--benefits .card p {
+        font-size: var(--h3-font-size);
+        letter-spacing: 3px;
+        padding-block: 150px 0px;
+    }
+
+    .container--Our--benefits .card h2 {
+        translate: 0px 380px;
+    }
+
+    /* =====================  SERVICES =============== */
+    .cloud--services h3 {
+        transform: translate(0, 9rem);
+    }
+
+    .sphere--container {
+        display: none;
+    }
+
+    .Title--Services {
+        transform: translate(1rem, -3rem);
+    }
+
+    .Title {
+        letter-spacing: 1px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--h2-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h3-font-size);
+        width: 200px;
+        translate: 20px 0px;
+    }
+
+    /* =====================  PRICING =============== */
+
+    .Pricing h3 {
+        transform: translate(0,-10rem);
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -10rem);
+    }
+
+    .pricing--container {
+        transform: translate(0, -10rem);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+    .pricing--card:hover {
+        transform: translateY(-10px);
+    }
+
+    /* =====================  FOOTER =============== */
+    footer {
+        background-repeat: repeat;
+    }
+
+    .line {
+        width: 100%;
+        transform: translate(0rem, 0rem);
+    }
+
+    .left--footer {
+        transform: translate(3rem, 0rem);
+    }
+
+    .right--footer {
+        right: 0px;
+        transform: translate(0rem, 0rem);
+    }
+
+    .Copyright {
+        letter-spacing: 0px;
+        padding-block: 0px 0px;
+        font-size: var(--h3-font-size);
+        font-family: var(--second-font);
+        transform: translate(11rem, 10rem);
+    }
+}
+@media (min-width:1025px) and (max-width:1248px) {
+    :root {
+        --blob-size: 38rem;
+        --biggest-font-size: 6rem;
+        --big-font-size: 4.8rem;
+        --h1-font-size: 3rem;
+        --h2-font-size: 1.8rem;
+        --h3-font-size: 1.30rem;
+        --small-font-size: .900rem;
+    }
+
+
+    header {
+        background-repeat: repeat;
+        background-size: cover;
+    }
+
+    nav {
+        width: 90%;
+        padding: 0;
+        margin: 0;
+        backdrop-filter: blur(20px);
+    }
+
+    .Blob,
+    .Blob2 {
+        width: var(--blob-size);
+    }
+
+    .nav--logo {
+        font-size: 1.1rem;
+    }
+
+    .nav--logo img {
+        width: 40px;
+    }
+
+    .Main--Text {
+        top: 50%;
+    }
+
+    .The--Text {
+        font-size: 3.2rem;
+    }
+
+    span {
+        width: 370px;
+        height: 210px;
+        z-index: -10;
+    }
+
+    .shadow1 {
+        top: 0px;
+        left: 0px;
+    }
+
+    .shadow2 {
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .move--login--btn {
+        top: 500%;
+    }
+
+    .hideOnMobile {
+        display: block;
+    }
+
+    .menu-btn {
+        display: none;
+    }
+
+    /* ================  our--Benefits ========= */
+    .Our--benefits h1 {
+        transform: translate(0, 20px);
+    }
+
+    .Our--benefits .sub-title {
+        font-size: var(--h3-font-size);
+        transform: translate(0, 30px);
+    }
+
+    .container--Our--benefits {
+        transform: translate(0, 45px);
+        padding: 7px;
+    }
+
+    /* =====================  SERVICES =============== */
+
+    .cloud--services h3 {
+        transform: translate(0, 50px);
+        font-size: var(--big-font-size);
+    }
+
+    .sphere--container {
+        display: block;
+        top: 5%;
+        left: 10%;
+        width: 300px;
+        height: 40%;
+    }
+
+    .Sphere {
+        width: 40%;
+    }
+
+    .tagcloud {
+        top: 100px;
+        left: 32%;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .Title--Services {
+        top: 0;
+        left: 0;
+        transform: translate(470px, 140px);
+        padding: 7px;
+        font-size: var(--h2-font-size);
+    }
+
+    .Title {
+        letter-spacing: 5px;
+        line-height: 25px;
+    }
+
+    .Services--Paragraph {
+        padding-block: 20px 100px;
+        font-size: var(--small-font-size);
+    }
+
+    .Title--Services .btn {
+        font-size: var(--h2-font-size);
+        width: 250px;
+        transform: translate(-30%, 0px);
+    }
+
+    /* =====================  PRICING =============== */
+    .Pricing h3 {
+        transform: translate(0, -100px);
+
+    }
+
+    .Pricing .pricing-subtitle {
+        transform: translate(0, -90px);
+    }
+
+    .pricing--container {
+        transform: translate(0, -80px);
+        padding: 7px;
+    }
+
+    .btn {
+        width: 150px;
+    }
+
+    /* =====================  FOOTER =============== */
+    footer {
+        background-repeat: repeat;
+    }
+
+    .line {
+        width: 100%;
+        transform: translate(2px, -30px);
+    }
+
+    .left--footer {
+        transform: translate(-30px, -30px);
+    }
+
+    .right--footer {
+        right: 0px;
+        transform: translate(10px, -70px);
+    }
+
+    .Copyright {
+        letter-spacing: 0px;
+        padding-block: 0px 0px;
+        font-size: 12px;
+        font-family: var(--second-font);
+        transform: translate(200px, 0px);
+    }
+}
+
+/* 
+@media screen and (max-width: 1680px) {}
+
+@media screen and (max-width: 1400px) {}
+
+@media screen and (max-width: 1280px) {}
+
+@media screen and (max-width: 1199px) {}
+
+@media screen and (max-width: 1024px) {}
+
+@media screen and (max-width: 991px) {}
+
+@media screen and (max-width: 767px) {}
+
+@media screen and (max-width: 600px) {}
+
+@media screen and (max-width: 575px) {}
+
+@media screen and (max-width: 480px) {}
+
+@media screen and (max-width: 360px) {}
+ */

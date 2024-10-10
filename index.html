@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+        <!--=============== FAVICON ===============-->
+        <link rel="shortcut icon" href="assets/imgs/Screenshot_2024-08-11_013215-removebg-preview.png" type="image/x-icon">
+
+        <!--=============== CSS ===============-->
+        <link rel="stylesheet" href="assets/CSS/Style.css">
+
+        <!--=============== REMIX-ICON ===============-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+
+        <!--=============== BOX-ICONS ===============-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--=============== font Awesome ===============-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+        <title>SECURIFY CLOUD</title>
+</head>
+<body>
+        <!--===================================== HEADER & HOME =====================================-->
+    <header id="home">
+        <span class="shadow1"></span>
+        <span class="shadow2"></span>
+        <nav>
+            <a href="#" class="nav--logo">
+                <img src="assets/imgs/Screenshot_2024-08-11_013215-removebg-preview.png" alt="logo img">
+                SECURIFY CLOUD</a>
+            <ul class="sidebar">
+            <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-x"></i></a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#our__benefits">Our Benefits</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            </ul>
+
+            <ul>
+                <li class="hideOnMobile"><a href="#home">Home</a></li>
+                <li class="hideOnMobile"><a href="#our__benefits">Our Benefits</a></li>
+                <li class="hideOnMobile"><a href="#services">Services</a></li>
+                <li class="hideOnMobile"><a href="#pricing">Pricing</a></li>
+                <li class="menu-btn" onclick=showSidebar()><a href="#"><i class="fa fa-bars"></i></a></li>
+            </ul>
+
+        </nav>
+            <div class="Blob">
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    width="100%" id="blobSvg">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#c2e59c;"></stop>
+                            <stop offset="100%" style="stop-color: #64b3f4;"></stop>
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#gradient)">
+                        <animate attributeName="d" dur="10000ms" repeatCount="indefinite" values="M454.5,321.5Q420,393,350.5,409Q281,425,221,414.5Q161,404,128,355Q95,306,81.5,245Q68,184,116,142Q164,100,226.5,64Q289,28,328,90Q367,152,428,201Q489,250,454.5,321.5Z;
+                                                    M445,312.5Q399,375,339,393.5Q279,412,211,423.5Q143,435,94,380Q45,325,72,260Q99,195,136.5,156.5Q174,118,229.5,85.5Q285,53,330,99Q375,145,433,197.5Q491,250,445,312.5Z;
+                                                    M424,323.5Q426,397,356,425Q286,453,222,431Q158,409,110.5,363.5Q63,318,44,243Q25,168,85.5,118.5Q146,69,216,58Q286,47,335.5,92Q385,137,403.5,193.5Q422,250,424,323.5Z;
+                                                    M436,316.5Q409,383,344,399.5Q279,416,207,433Q135,450,79.5,391Q24,332,41.5,256Q59,180,106,130.5Q153,81,216.5,80Q280,79,324,115Q368,151,415.5,200.5Q463,250,436,316.5Z;
+                                                    M441.5,323.5Q425,397,357,435Q289,473,216.5,453.5Q144,434,84,383Q24,332,32,252.5Q40,173,96.5,127.5Q153,82,216.5,81Q280,80,324,115.5Q368,151,413,200.5Q458,250,441.5,323.5Z;
+                                                    M454.5,321.5Q420,393,350.5,409Q281,425,221,414.5Q161,404,128,355Q95,306,81.5,245Q68,184,116,142Q164,100,226.5,64Q289,28,328,90Q367,152,428,201Q489,250,454.5,321.5Z;
+                                                                                                                "></animate>
+                    </path>
+                </svg>
+            </div>
+            <!-- glow blob -->
+            <div class="Blob2">
+                            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="100%" id="blobSvg">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#c2e59c;"></stop>
+                                        <stop offset="100%" style="stop-color: #64b3f4;"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#gradient)">
+                                    <animate attributeName="d" dur="10000ms" repeatCount="indefinite" values="M454.5,321.5Q420,393,350.5,409Q281,425,221,414.5Q161,404,128,355Q95,306,81.5,245Q68,184,116,142Q164,100,226.5,64Q289,28,328,90Q367,152,428,201Q489,250,454.5,321.5Z;
+                                                                M445,312.5Q399,375,339,393.5Q279,412,211,423.5Q143,435,94,380Q45,325,72,260Q99,195,136.5,156.5Q174,118,229.5,85.5Q285,53,330,99Q375,145,433,197.5Q491,250,445,312.5Z;
+                                                                M424,323.5Q426,397,356,425Q286,453,222,431Q158,409,110.5,363.5Q63,318,44,243Q25,168,85.5,118.5Q146,69,216,58Q286,47,335.5,92Q385,137,403.5,193.5Q422,250,424,323.5Z;
+                                                                M436,316.5Q409,383,344,399.5Q279,416,207,433Q135,450,79.5,391Q24,332,41.5,256Q59,180,106,130.5Q153,81,216.5,80Q280,79,324,115Q368,151,415.5,200.5Q463,250,436,316.5Z;
+                                                                M441.5,323.5Q425,397,357,435Q289,473,216.5,453.5Q144,434,84,383Q24,332,32,252.5Q40,173,96.5,127.5Q153,82,216.5,81Q280,80,324,115.5Q368,151,413,200.5Q458,250,441.5,323.5Z;
+                                                                M454.5,321.5Q420,393,350.5,409Q281,425,221,414.5Q161,404,128,355Q95,306,81.5,245Q68,184,116,142Q164,100,226.5,64Q289,28,328,90Q367,152,428,201Q489,250,454.5,321.5Z;
+                                                                                                                            "></animate>
+                                </path>
+                            </svg>
+            </div>
+            <!-- Home title -->
+            <div class="Main--Text">
+                <div class="The--Text">
+                    Protect Your Data
+                </div>
+                <div class="move--login--btn">
+                    <a class="login-btn" href="D:\Documents\DEPI\CSS\Final CSS Project\login.html">Login &#8594;</a>
+                </div>
+            </div>
+            <!-- spread text -->
+            <div class="hideOnMobile spread--text">
+                <div class="top--left">
+                    we can guarding your<br> data with utmost care<br> empowering you with<br> privacy everywhere
+                </div>
+                <div  class="button--left ">
+                <p>+1.5b</p><br>gb data was protected
+                </div>
+                <div class="top--right">
+                    <p>+65k</p><br>startups use
+                </div>
+                <div class="button--right">
+                    <p>+300k</p><br>downloads
+                </div>
+            </div>
+    </header>
+        <!--===================================== Our benefits =====================================-->
+    <section class="Our--benefits" id="our__benefits">
+                <span class="shadow1"></span>
+                <span class="shadow2"></span>
+
+                <h1>Our Benefits</h1>
+                <p class="sub-title">Security providers continuously monitor network traffic log files</p>
+                <div class="container--Our--benefits">
+                
+                    <div class="card">
+                        <span class="blue--shadow"></span>
+                        <h3>Proactive threat<br>Detection and Response</h3>
+                        <p>Security providers continuously<br> monitor network traffic, log files,<br> and system activities to identify suspicious
+                        patterns or anomalies<br> that may indicate a security breach.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="circular--blob">
+                            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%"
+                                id="blobSvg">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color: rgb(194, 229, 156);"></stop>
+                                        <stop offset="100%" style="stop-color: rgb(100, 179, 244);"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#gradient)">
+                                    <animate attributeName="d"
+                                    dur="10000ms"
+                                    repeatCount="indefinite"
+                                    values="
+                                    M392,355Q318,460,193,421Q68,382,77,256.5Q86,131,200.5,90Q315,49,390.5,149.5Q466,250,392,355Z;
+                                    M387.5,347.5Q313,445,189,414.5Q65,384,61,246.5Q57,109,187.5,74.5Q318,40,390,145Q462,250,387.5,347.5Z;
+                                    M397.5,365.5Q325,481,201.5,428Q78,375,74.5,247.5Q71,120,197,72Q323,24,396.5,137Q470,250,397.5,365.5Z;
+                                    M405,345.5Q312,441,194.5,408.5Q77,376,73,247.5Q69,119,192,84Q315,49,406.5,149.5Q498,250,405,345.5Z;
+                                    M392,363.5Q324,477,196.5,429.5Q69,382,69.5,250.5Q70,119,194,79.5Q318,40,389,145Q460,250,392,363.5Z;
+                                    M408,356.5Q319,463,188.5,426.5Q58,390,54.5,247.5Q51,105,181.5,81.5Q312,58,404.5,154Q497,250,408,356.5Z;
+                                    M401,368.5Q327,487,189.5,440.5Q52,394,59,255Q66,116,189.5,86Q313,56,394,153Q475,250,401,368.5Z;
+                                    M392,355Q318,460,193,421Q68,382,77,256.5Q86,131,200.5,90Q315,49,390.5,149.5Q466,250,392,355Z;
+                                    "
+                                    ></animate>
+                                </path>
+                            </svg>
+                        </div> 
+                        <!-- glow blob -->
+                        <div class="circular--blob">
+                            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                width="100%" id="blobSvg">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color: rgb(194, 229, 156);"></stop>
+                                        <stop offset="100%" style="stop-color: rgb(100, 179, 244);"></stop>
+                                    </linearGradient>
+                                </defs>
+                                <path fill="url(#gradient)">
+                                    <animate attributeName="d" dur="10000ms" repeatCount="indefinite" values="
+                                                            M392,355Q318,460,193,421Q68,382,77,256.5Q86,131,200.5,90Q315,49,390.5,149.5Q466,250,392,355Z;
+                                                            M387.5,347.5Q313,445,189,414.5Q65,384,61,246.5Q57,109,187.5,74.5Q318,40,390,145Q462,250,387.5,347.5Z;
+                                                            M397.5,365.5Q325,481,201.5,428Q78,375,74.5,247.5Q71,120,197,72Q323,24,396.5,137Q470,250,397.5,365.5Z;
+                                                            M405,345.5Q312,441,194.5,408.5Q77,376,73,247.5Q69,119,192,84Q315,49,406.5,149.5Q498,250,405,345.5Z;
+                                                            M392,363.5Q324,477,196.5,429.5Q69,382,69.5,250.5Q70,119,194,79.5Q318,40,389,145Q460,250,392,363.5Z;
+                                                            M408,356.5Q319,463,188.5,426.5Q58,390,54.5,247.5Q51,105,181.5,81.5Q312,58,404.5,154Q497,250,408,356.5Z;
+                                                            M401,368.5Q327,487,189.5,440.5Q52,394,59,255Q66,116,189.5,86Q313,56,394,153Q475,250,401,368.5Z;
+                                                            M392,355Q318,460,193,421Q68,382,77,256.5Q86,131,200.5,90Q315,49,390.5,149.5Q466,250,392,355Z;
+                                                            "></animate>
+                                </path>
+                            </svg>
+                        </div>
+                        <h2>Expertise and Industry Knowledge</h2>
+                    </div>
+
+                    <div class="card">
+                        <span class="orange--shadow"></span>
+                        <h3>Proactive threat<br>Detection and Response</h3>
+                        <p>Security providers continuously<br> monitor network traffic, log files,<br> and system activities to identify
+                            suspicious
+                            patterns or anomalies<br> that may indicate a security breach.</p>
+                    </div>
+                </div>
+    </section>
+        <!--===================================== CLOUD SERVICES ====================================-->
+    <section class="cloud--services" id="services">
+        <span class="shadow1"></span>
+        <span class="shadow2"></span>
+
+        <h3>cloud services</h3>
+
+        <div class="sphere--container">
+            <a href="#pricing"><span class="Sphere"></span></a>
+        </div>
+
+        <div class="Title--Services">
+            <p class="Title">
+                Enterprise-level<br>
+                Cloud Computing Server
+            </p>
+            <p class="Services--Paragraph">Our Cloud Servers provide exceptional computing, storage and<br> networking performance,
+                comparable to AWS-EC2, but at <i style="color:#64b3f4;">50%</i><br> less cost.</p>
+            <a href="#pricing"><button class="btn">&#36;/5.9mo Get Started  &#8594;</button></a>
+        </div>
+    </section>
+        <!--=====================================  PRICING ============================================-->
+        <section class="Pricing" id="pricing">
+            <span class="shadow1"></span>
+            <span class="shadow2"></span>
+            <h3>Choose Your Plan</h3>
+            <p class="pricing-subtitle">Unlock Endless Possibilities</p>
+
+            <div class="pricing--container">
+
+                <!--============================= Pricing Card1======================================== -->
+                <div class="pricing--card">
+                    <h5 class="plan--type--btn">Basic Plan</h5>
+                    <h4 class="The--Price">&#36;5.9/month</h4>
+                    <span class="Features--subtitle">Everything on Basic Plus:</span>
+                    <div class="Features">
+                        <div class="all--features"><i class="ri-check-line"></i>CPU 1C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>Ram 2C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>DiskSpace 40G</div>
+                        <div class="all--features"><i class="ri-check-line"></i>16+ Global Data Centers</div>
+                        <div class="all--features"><i class="ri-check-line"></i>24/7/365 Support</div>
+                        <div class="all--features"><i class="ri-check-line"></i>New Generation Machine</div>
+                    </div>
+                    <a class="btn" href="D:\Documents\DEPI\CSS\Final CSS Project\login.html">Get Started &#8594;</a>
+                </div>
+
+                <!--============================= Pricing Card2======================================== -->
+                <div class="pricing--card">
+                    <p class="plan--type--btn">Basic Plan</p>
+                    <h4 class="The--Price">&#36;10.9/month</h4>
+                    <span class="Features--subtitle">Everything on Basic Plus:</span>
+                    <div class="Features">
+                        <div class="all--features"><i class="ri-check-line"></i>CPU 2C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>Ram 4C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>DiskSpace 40G</div>
+                        <div class="all--features"><i class="ri-check-line"></i>16+ Global Data Centers</div>
+                        <div class="all--features"><i class="ri-check-line"></i>24/7/365 Support</div>
+                        <div class="all--features"><i class="ri-check-line"></i>New Generation Machine</div>
+                    </div>
+                    <a class="btn" href="D:\Documents\DEPI\CSS\Final CSS Project\login.html">Get Started &#8594;</a>
+                </div>
+
+                <!--============================= Pricing Card3======================================== -->
+                <div class="pricing--card">
+                    <p class="plan--type--btn">Papular Plan</p>
+                    <h4 class="The--Price">&#36;18.9/month</h4>
+                    <span class="Features--subtitle">Everything on Basic Plus:</span>
+                    <div class="Features">
+                        <div class="all--features"><i class="ri-check-line"></i>CPU 4C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>Ram 8C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>DiskSpace 40G</div>
+                        <div class="all--features"><i class="ri-check-line"></i>16+ Global Data Centers</div>
+                        <div class="all--features"><i class="ri-check-line"></i>24/7/365 Support</div>
+                        <div class="all--features"><i class="ri-check-line"></i>New Generation Machine</div>
+                    </div>
+                    <a class="btn" href="D:\Documents\DEPI\CSS\Final CSS Project\login.html">Get Started &#8594;</a>
+                </div>
+
+                <!--============================= Pricing Card4======================================== -->
+                <div class="pricing--card">
+                    <p class="plan--type--btn">Pro Plan</p>
+                    <h4 class="The--Price">&#36;68.9/month</h4>
+                    <span class="Features--subtitle">Everything on Basic Plus:</span>
+                    <div class="Features">
+                        <div class="all--features"><i class="ri-check-line"></i>CPU 16C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>Ram 32C</div>
+                        <div class="all--features"><i class="ri-check-line"></i>DiskSpace 40G</div>
+                        <div class="all--features"><i class="ri-check-line"></i>16+ Global Data Centers</div>
+                        <div class="all--features"><i class="ri-check-line"></i>24/7/365 Support</div>
+                        <div class="all--features"><i class="ri-check-line"></i>New Generation Machine</div>
+                    </div>
+                    <a class="btn" href="D:\Documents\DEPI\CSS\Final CSS Project\login.html">Get Started &#8594;</a>
+                </div>
+            </div>
+        </section>
+            <!--===================================== FOOTER ===========================================-->
+        <footer>
+            <span class="line"></span>
+
+            <div class="left--footer">
+                <div class="web--logo">
+                    <img src="assets/imgs/Screenshot_2024-08-11_013215-removebg-preview.png" alt="logo img">
+                    <p>Securify Cloud</p>
+                </div>
+                <p class="E-mail">support01@SecurifyCloud.com</p>
+                <p class="follow">Follow us</p>
+                <div class="Social-Icons">
+                    <a href="#">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bx bxl-instagram-alt"></i>
+                    </a>
+                    <a href="#">
+                        <i class="bx bxl-twitter"></i>
+                    </a>
+                </div>
+                <p class="Copyright">Copyright &#169;2024 Securify Cloud All Rights Reserved</p>
+            </div>
+
+            <div class="right--footer">
+                <ul class="Product">
+                    <li>Product</li>
+                    <li><a href="#">UHost</a></li>
+                    <li><a href="#">UNet</a></li>
+                    <li><a href="#">UVPC</a></li>
+                </ul>
+                <ul class="company">
+                    <li>company</li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+        </footer>
+    <!--==================== SPHERE CLOUD SERVICES ====================-->
+    <script src="assets/js/TagCloud.min.js"></script>
+
+    <!--======================== SCROLL REVEAL ========================-->
+    <SCript src="assets/js/scrollreveal.min.js"></SCript>
+
+    <!--========================= MAIN JS ============================-->
+<script src="assets/js/main.js"></script>
+</body>
+</html>
